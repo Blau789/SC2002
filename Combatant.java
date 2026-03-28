@@ -88,7 +88,7 @@ public abstract class Combatant {
     }
 
     //update the current defense value
-    public void setDefence(int defense) {
+    public void setDefense(int defense) {
         this.defense = defense;
     }
 
