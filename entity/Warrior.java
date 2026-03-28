@@ -24,6 +24,9 @@ public class Warrior extends Player {
 
         int damage = Math.max(0, this.attack - target.getDefense());
         target.takeDamage(damage);
+        StunEffect stun = new StunEffect(2);
+        stun.apply(target);
+        target.addStatusEffect(stun);
 
         // reset cooldown to 3 turns
         resetCooldown();
