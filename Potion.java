@@ -6,6 +6,7 @@ public class Potion implements Item{
 	public String use(Combatant user, List<Combatant> enemies) {
 		int newHp = Math.min(user.getHp() + HEAL_AMOUNT, user.getMaxHp());
 		user.setHp(newHp);
+		return user.getName() + " used Potion and healed to " + user.getHp() + " HP.";
 	}
 
 	@Override
