@@ -1,5 +1,7 @@
 package entity.statuseffects;
 
+import entity.Combatant;
+
 public class SmokeBombEffect implements StatusEffect {
     private int duration;
 
@@ -9,7 +11,7 @@ public class SmokeBombEffect implements StatusEffect {
 
     @Override
     public void apply(Combatant target) {
-        // Effect is checked externally in StatusEffectManager.hasSmokeBombActive()
+        // Effect is checked externally by StatusEffectManager
     }
 
     @Override

@@ -5,7 +5,6 @@ import entity.Wizard;
 
 public class ArcaneBlastBuff implements StatusEffect {
     private final int bonusAttack;
-    private boolean expired = false;
 
     public ArcaneBlastBuff(int bonusAttack) {
         this.bonusAttack = bonusAttack;
@@ -25,12 +24,12 @@ public class ArcaneBlastBuff implements StatusEffect {
 
     @Override
     public void remove(Combatant target) {
-        // Not reversed mid-level; game ends anyway
+        // Not reversed mid-level
     }
 
     @Override
     public boolean isExpired() {
-        return expired;
+        return false;
     }
 
     @Override

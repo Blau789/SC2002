@@ -1,6 +1,8 @@
 package entity.items;
 
+import entity.Combatant;
 import java.util.List;
+
 public class Potion implements Item{
 	private static final int HEAL_AMOUNT = 100;
 
