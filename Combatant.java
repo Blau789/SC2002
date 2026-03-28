@@ -1,0 +1,87 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Combatant {
+    protected String name;
+    protected int hp;
+    protected int maxHp;
+    protected int attack;
+    protected int defense;
+    protected int baseDefense;
+    protected int speed;
+    protected List<StatusEffect> statusEffects;
+
+    public Combatant(String name, int maxHp, int attack, int defense, int speed) {
+        this.name = name;
+        this.maxHp = maxHp;
+        this.hp = maxHp;
+        this.attack = attack;
+        this.defense = defense;
+        this.baseDefense = defense;
+        this.speed = speed;
+        this.statusEffects = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    //update new hp based on the effect
+    public void setHp(int hp) {
+        if (hp < 0) {
+            this.hp = 0;
+        } else if (hp > maxHp) {
+            this.hp = maxHp;
+        } else {
+            this.hp = hp;
+        }
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public boolean isAlive() {
+        return hp > 0;
+    }
+
+    public void takeDamage(int damage) {
+        if (damage < 0) {
+            damage = 0;
+        }
+
+        hp -= damage;
+
+        if (hp < 0) {
+            hp = 0;
+        }
+    }
+
+    public void heal(int amount) {
+        if (amount <= 0) {
+            return;
+        }
+
+        hp += amount;
+
+        if (hp > maxHp) {
+            hp = maxHp;
+        }
+    }
+}

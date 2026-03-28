@@ -4,7 +4,7 @@ public class Potion implements Item{
 
 	@Override
 	public String use(Combatant user, List<Combatant> enemies) {
-		int newHp = Math.min(user, getHp() + HEAL_AMOUNT, user,getMaxHp());
+		int newHp = Math.min(user.getHp() + HEAL_AMOUNT, user.getMaxHp());
 		user.setHp(newHp);
 	}
 
