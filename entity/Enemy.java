@@ -1,6 +1,8 @@
+package entity;
+
 import java.util.List;
 
-//Enemy is an abstract class inherited from Combatant class and will be the super class of wolf and goblin
+//entity.Enemy is an abstract class inherited from Combatant class and will be the super class of wolf and goblin
 public abstract class Enemy extends Combatant {
     protected EnemyActionStrategy actionStrategy;
 

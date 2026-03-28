@@ -1,7 +1,9 @@
+package entity;
+
 public class Goblin extends Enemy {
 
     public Goblin(EnemyActionStrategy strategy) {
-        super("Goblin", 55, 35, 15, 25, strategy);
+        super("entity.Goblin", 55, 35, 15, 25, strategy);
     }
 
     public Goblin(String name, EnemyActionStrategy strategy) {

@@ -1,6 +1,8 @@
+package entity;
+
 public class Wolf extends Enemy {
     public Wolf(EnemyActionStrategy strategy) {
-        super("Wolf", 40, 45, 5, 35);
+        super("entity.Wolf", 40, 45, 5, 35);
 
     }
 
