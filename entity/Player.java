@@ -1,7 +1,11 @@
+package entity;
+
+import entity.items.Item;
+
 import java.util.ArrayList;
 import java.util.List;
 
-//Player is an abstract class inherited from Combatant class and will be the super class of warrior and wizard
+//entity.Player is an abstract class inherited from entity.Combatant class and will be the super class of warrior and wizard
 public abstract class Player extends Combatant {
     protected List<Item> items;
     protected int specialSkillCooldown;

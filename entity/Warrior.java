@@ -1,3 +1,6 @@
+package entity;
+
+import entity.statuseffects.StunEffect;
 import java.util.List;
 
 public class Warrior extends Player {

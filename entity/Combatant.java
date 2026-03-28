@@ -1,7 +1,10 @@
+package entity;
+
+import entity.statuseffects.StatusEffect;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
-import java.util.Objects;
 
 public abstract class Combatant {
     protected String name;
