@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
+import java.util.Objects;
 
 public abstract class Combatant {
     protected String name;
@@ -24,17 +26,6 @@ public abstract class Combatant {
 
     public String getName() {
         return name;
-    }
-
-    //update new hp based on the effect
-    public void setHp(int hp) {
-        if (hp < 0) {
-            this.hp = 0;
-        } else if (hp > maxHp) {
-            this.hp = maxHp;
-        } else {
-            this.hp = hp;
-        }
     }
 
     public int getHp() {
@@ -84,4 +75,50 @@ public abstract class Combatant {
             hp = maxHp;
         }
     }
+
+    //update new hp based on the effect(hp<0, +healed hp >0)
+    public void setHp(int hp) {
+        if (hp < 0) {
+            this.hp = 0;
+        } else if (hp > maxHp) {
+            this.hp = maxHp;
+        } else {
+            this.hp = hp;
+        }
+    }
+
+    //update the current defense value
+    public void setDefence(int defense) {
+        this.defense = defense;
+    }
+
+    //add new effect to this combatant
+    public void addStatusEffect(StatusEffect effect) {
+        if (effect != null) {
+            statusEffects.add(effect);
+        }
+    }
+
+    //remove a specific effect
+    public void removeStatusEffects(StatusEffect effect) {
+        statusEffects.remove(effect);
+    }
+
+    //return all current effect
+    public List<StatusEffect> getStatusEffects() {
+        return statusEffects;
+    }
+
+    //remove the expired effect(s)
+    public void removeExpiredEffects() {
+        Iterator<StatusEffect> iterator = statusEffects.iterator();
+
+        while (iterator.hasNext()) {
+            StatusEffect effect = iterator.next();
+            if (effect.isExpired()) {
+                iterator.remove();
+            }
+        }
+    }
+
 }
