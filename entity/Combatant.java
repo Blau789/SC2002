@@ -119,6 +119,7 @@ public abstract class Combatant {
         while (iterator.hasNext()) {
             StatusEffect effect = iterator.next();
             if (effect.isExpired()) {
+                effect.remove(this);
                 iterator.remove();
             }
         }
