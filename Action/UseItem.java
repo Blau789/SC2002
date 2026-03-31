@@ -1,5 +1,5 @@
 
-package action;
+package SC2002.Action;
 
 import java.util.List;
 
