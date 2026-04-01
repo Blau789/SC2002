@@ -1,6 +1,6 @@
-package SC2002.entity.statuseffects;
+package SC2002.entity.combatant.statuseffects;
 
-import entity.Combatant;
+import SC2002.entity.combatant.Combatant;
 
 public class StunEffect implements StatusEffect{
     private int duration;

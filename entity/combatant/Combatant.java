@@ -1,10 +1,9 @@
 package SC2002.entity.combatant;
 
 import SC2002.entity.combatant.statuseffects.StatusEffect;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 public abstract class Combatant {
     protected String name;

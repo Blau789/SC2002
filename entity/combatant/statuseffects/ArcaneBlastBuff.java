@@ -1,7 +1,7 @@
-package SC2002.entity.statuseffects;
+package SC2002.entity.combatant.statuseffects;
 
-import entity.Combatant;
-import entity.Wizard;
+import SC2002.entity.combatant.Combatant;
+import SC2002.entity.combatant.Wizard;
 
 public class ArcaneBlastBuff implements StatusEffect {
     private final int bonusAttack;

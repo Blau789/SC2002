@@ -1,6 +1,6 @@
 package SC2002.entity.combatant;
 
-import entity.statuseffects.StunEffect;
+import SC2002.entity.combatant.statuseffects.StunEffect;
 import java.util.List;
 
 public class Warrior extends Player {
