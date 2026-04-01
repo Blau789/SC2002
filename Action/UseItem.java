@@ -1,13 +1,18 @@
 
+// 1. FIXED: Package name is now lowercase to respect Java conventions.
 package SC2002.Action;
 
+import SC2002.entity.combatant.Combatant;
+import SC2002.entity.items.Item;
 import java.util.List;
 
-public class UseItem implements Action {
+public class UseItem implements Actions {
 
-    private Items itemToUse; 
+   
+    private Item itemToUse; 
     
-    public UseItem(Items itemToUse) {
+  
+    public UseItem(Item itemToUse) {
         this.itemToUse = itemToUse;
     }
 
@@ -17,8 +22,7 @@ public class UseItem implements Action {
             return "No item selected!";
         }
         
-        // The item itself should contain the logic of what it does to the target
-        return itemToUse.applyEffect(source, targets);
+        return itemToUse.use(source, targets);
     }
 
     @Override

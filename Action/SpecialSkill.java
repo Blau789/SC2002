@@ -1,8 +1,9 @@
 package SC2002.Action;
 
+import SC2002.entity.combatant.Combatant;
 import java.util.List;
 
-public abstract class SpecialSkill implements Action {
+public abstract class SpecialSkill implements Actions {
     
     protected int currentCooldown;
     protected String skillName;

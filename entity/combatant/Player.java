@@ -1,6 +1,7 @@
-package entity;
+package SC2002.entity.combatant;
 
-import entity.items.Item;
+import SC2002.entity.items.Item;
+import Combatant;
 
 import java.util.ArrayList;
 import java.util.List;

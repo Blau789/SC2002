@@ -1,4 +1,4 @@
-package entity;
+package SC2002.entity.combatant;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public abstract class Enemy extends Combatant {
         return actionStrategy;
     }
 
-    public Action decideAction(List<Combatant> targets) {
+    public Actions decideAction(List<Combatant> targets) {
         if (actionStrategy == null) {
             return null;
         }

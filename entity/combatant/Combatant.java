@@ -1,6 +1,6 @@
-package entity;
+package SC2002.entity.combatant;
 
-import entity.statuseffects.StatusEffect;
+import SC2002.entity.combatant.statuseffects.StatusEffect;
 
 import java.util.ArrayList;
 import java.util.List;

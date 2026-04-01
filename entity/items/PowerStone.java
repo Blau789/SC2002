@@ -1,7 +1,7 @@
-package entity.items;
+package SC2002.entity.items;
 
-import entity.Combatant;
-import entity.Player;
+import SC2002.entity.combatant.Combatant;
+import SC2002.entity.combatant.Player;
 import java.util.List;
 
 public class PowerStone implements Item {

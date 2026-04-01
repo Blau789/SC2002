@@ -1,8 +1,9 @@
 package SC2002.Action;
 
+import SC2002.entity.combatant.Combatant;
 import java.util.List;
 
-public class BasicAttack implements Action {
+public class BasicAttack implements Actions {
 
     @Override
     public String execute(Combatant source, List<Combatant> targets) {
@@ -17,10 +18,10 @@ public class BasicAttack implements Action {
         int finalDamage = Math.max(0, rawDamage); 
 
         // Apply damage
-        int newHp = target.getHealth() - finalDamage;
+        int newHp = target.getHp() - finalDamage;
         
         // Minimum HP post-damage is 0
-        target.setHealth(Math.max(0, newHp));
+        target.setHp(Math.max(0, newHp));
 
         return String.format("%s used Basic Attack on %s for %d damage!", 
                              source.getName(), target.getName(), finalDamage);

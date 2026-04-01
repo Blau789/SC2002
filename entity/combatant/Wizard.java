@@ -1,4 +1,4 @@
-package entity;
+package SC2002.entity.combatant;
 
 import java.util.List;
 

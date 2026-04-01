@@ -1,4 +1,4 @@
-package entity;
+package SC2002.entity.combatant;
 
 public class Wolf extends Enemy {
     public Wolf(EnemyActionStrategy strategy) {

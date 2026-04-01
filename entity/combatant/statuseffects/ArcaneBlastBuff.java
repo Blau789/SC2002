@@ -1,4 +1,4 @@
-package entity.statuseffects;
+package SC2002.entity.statuseffects;
 
 import entity.Combatant;
 import entity.Wizard;
