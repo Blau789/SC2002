@@ -1,4 +1,5 @@
 package SC2002.entity.combatant;
+import SC2002.strategy.EnemyActionStrategy;
 
 public class Goblin extends Enemy {
 

@@ -1,15 +1,14 @@
-package com.game.strategy;
+package SC2002.strategy;
 
-import com.game.model.action.Action;
-import com.game.model.action.BasicAttack;
-import com.game.model.combatant.Combatant;
-import com.game.model.combatant.Enemy;
+import SC2002.Action.Actions;
+import SC2002.Action.BasicAttack;
+import SC2002.entity.combatant.Combatant;
+import SC2002.entity.combatant.Enemy;
 import java.util.List;
-
 public class BasicAttackStrategy implements EnemyActionStrategy {
 
     @Override
-    public Action decideAction(Enemy enemy, List<Combatant> possibleTargets) {
+    public Actions decideAction(Enemy enemy, List<Combatant> possibleTargets) {
         return new BasicAttack();
     }
 

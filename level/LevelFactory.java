@@ -1,9 +1,9 @@
-package com.game.level;
+package SC2002.level;
 
-import com.game.model.combatant.Goblin;
-import com.game.model.combatant.Wolf;
-import com.game.strategy.BasicAttackStrategy;
-import com.game.strategy.EnemyActionStrategy;
+import SC2002.entity.combatant.Goblin;
+import SC2002.entity.combatant.Wolf;
+import SC2002.strategy.BasicAttackStrategy;
+import SC2002.strategy.EnemyActionStrategy;
 import java.util.ArrayList;
 import java.util.Arrays;
 

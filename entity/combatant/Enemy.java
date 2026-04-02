@@ -1,7 +1,8 @@
 package SC2002.entity.combatant;
 
+import SC2002.Action.Actions;
+import SC2002.strategy.EnemyActionStrategy;
 import java.util.List;
-
 //entity.Enemy is an abstract class inherited from Combatant class and will be the super class of wolf and goblin
 public abstract class Enemy extends Combatant {
     protected EnemyActionStrategy actionStrategy;
