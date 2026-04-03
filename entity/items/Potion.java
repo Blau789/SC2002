@@ -8,11 +8,21 @@ public class Potion implements Item{
 
 	@Override
     public String use(Combatant user, List<Combatant> targets) {
-        int oldHp = user.getHp();
-        user.heal(HEAL_AMOUNT);
-        int healed = user.getHp() - oldHp;
-        return user.getName() + " uses Potion! HP: " + oldHp + " → " + user.getHp()
-                + " (+" + healed + ")";
+        if (targets == null || targets.isEmpty()){
+            return "potion failed:no valid targets selected";
+        }
+        if (targets.size() > 1){
+            return "potion can only be used on one teammate!";
+        } 
+        Combatant target = targets.get(0);
+        if (!target.isAlive()){
+            return "potion failed" + target.getName() + " is already defeated"; 
+        }
+        int oldHp = target.getHp();
+        target.heal(HEAL_AMOUNT);
+        int healed = target.getHp() - oldHp;    
+
+        return String.format("%s used potion on %s! Hp: %d -> %d (+%d", user.getName(), target.getName(), oldHp, target.getHp(), healed);
     }
 
 	@Override
