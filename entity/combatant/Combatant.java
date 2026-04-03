@@ -61,7 +61,13 @@ public abstract class Combatant {
             damage = 0;
         }
 
-        hp -= damage;
+        double multiplier = 1.0;
+        for (StatusEffect effect : statusEffects) {
+            multiplier *= effect.getDamageReceivedMultiplier();
+        }
+
+        int actualDamage = (int)(damage * multiplier);
+        hp -= actualDamage;
 
         if (hp < 0) {
             hp = 0;
@@ -98,7 +104,7 @@ public abstract class Combatant {
         }
     }
 
-    //remove a specific effect
+    //remove a specific effects
     public void removeStatusEffects(StatusEffect effect) {
         statusEffects.remove(effect);
     }
@@ -121,4 +127,14 @@ public abstract class Combatant {
         }
     }
 
+    public boolean canTakeTurn(){
+        for (StatusEffect effect : statusEffects) {
+            if (!effect.canTakeTurn()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
+
+
