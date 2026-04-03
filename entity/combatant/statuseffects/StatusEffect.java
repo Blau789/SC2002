@@ -13,4 +13,10 @@ public interface StatusEffect {
     default int getDefenseModifier(){
         return 0;
     }
+    default boolean canTakeTurn(){
+        return true;
+    }
+    default double getDamageRecievedMultiplier(){
+        return 1.0; 
+    }
 }

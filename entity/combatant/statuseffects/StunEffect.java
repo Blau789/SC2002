@@ -20,7 +20,6 @@ public class StunEffect implements StatusEffect{
 
     @Override
     public void remove(Combatant target) {
-        // Nothing to reverse
     }
 
     @Override
@@ -36,5 +35,9 @@ public class StunEffect implements StatusEffect{
     @Override
     public int getRemainingDuration() {
         return duration;
+    }
+    @Override
+    public boolean canTakeTurn(){
+        return false;
     }
 }
