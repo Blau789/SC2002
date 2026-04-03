@@ -9,7 +9,7 @@ public abstract class Combatant {
     protected String name;
     protected int hp;
     protected int maxHp;
-    protected int attack;
+    protected int baseAttack;
     protected int baseDefense;
     protected int speed;
     protected List<StatusEffect> statusEffects;
@@ -18,7 +18,7 @@ public abstract class Combatant {
         this.name = name;
         this.maxHp = maxHp;
         this.hp = maxHp;
-        this.attack = attack;
+        this.baseAttack = attack;
         this.baseDefense = defense;
         this.speed = speed;
         this.statusEffects = new ArrayList<>();
@@ -37,7 +37,11 @@ public abstract class Combatant {
     }
 
     public int getAttack() {
-        return attack;
+        int totalAttack = this.baseAttack;
+        for (StatusEffect effect: this.statusEffects){
+            totalAttack += effect.getAttackModifier();
+        }
+        return Math.max(0,totalAttack);
     }
 
     public int getDefense() {
