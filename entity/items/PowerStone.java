@@ -8,7 +8,7 @@ import java.util.List;
 public class PowerStone implements Item {
 
 	@Override
-    public String use(Combatant user, List<Combatant> allEnemies) {
+    public String use(Combatant user, List<Combatant> targets) {
         if (user instanceof Player) {
             Player player = (Player) user;
             SpecialSkill skill = player.getSpecialSkill();
@@ -17,7 +17,7 @@ public class PowerStone implements Item {
             }
             int savedCooldown = skill.getCurrentCooldown();
             skill.setCurrentCooldown(0);
-            String result = skill.execute(player,allEnemies);
+            String result = skill.execute(player,targets);
 
             skill.setCurrentCooldown(savedCooldown);
             return "Power Stone used! " + result;

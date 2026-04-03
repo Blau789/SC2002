@@ -7,7 +7,7 @@ public class Potion implements Item{
 	private static final int HEAL_AMOUNT = 100;
 
 	@Override
-    public String use(Combatant user, List<Combatant> allEnemies) {
+    public String use(Combatant user, List<Combatant> targets) {
         int oldHp = user.getHp();
         user.heal(HEAL_AMOUNT);
         int healed = user.getHp() - oldHp;

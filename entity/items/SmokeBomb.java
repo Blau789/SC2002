@@ -8,7 +8,7 @@ public class SmokeBomb implements Item {
 	private static final int DURATION = 2;
 
 	@Override
-	public String use(Combatant user, List<Combatant> enemies) {
+	public String use(Combatant user, List<Combatant> targets) {
 		SmokeBombEffect effect = new SmokeBombEffect(DURATION);
 		effect.apply(user);
 		user.addStatusEffect(effect);
