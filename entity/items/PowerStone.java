@@ -1,5 +1,6 @@
 package SC2002.entity.items;
 
+import SC2002.Action.SpecialSkill;
 import SC2002.entity.combatant.Combatant;
 import SC2002.entity.combatant.Player;
 import java.util.List;
@@ -10,11 +11,15 @@ public class PowerStone implements Item {
     public String use(Combatant user, List<Combatant> allEnemies) {
         if (user instanceof Player) {
             Player player = (Player) user;
-            // Save current cooldown — Power Stone does not affect it
-            int savedCooldown = player.getCooldown();
-            String result = player.useSpecialSkill(allEnemies);
-            // Restore cooldown to what it was before
-            player.setCooldown(savedCooldown);
+            SpecialSkill skill = player.getSpecialSkill();
+            if (skill == null){
+                return "no special skill equipped to use the Power Stone";
+            }
+            int savedCooldown = skill.getCurrentCooldown();
+            skill.setCurrentCooldown(0);
+            String result = skill.execute(player,allEnemies);
+
+            skill.setCurrentCooldown(savedCooldown);
             return "Power Stone used! " + result;
         }
         return "Power Stone fizzles...";
