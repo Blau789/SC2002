@@ -9,4 +9,8 @@ public interface StatusEffect {
     boolean isExpired();
     String getName();
     int getRemainingDuration();
+
+    default int getDefenseModifier(){
+        return 0;
+    }
 }

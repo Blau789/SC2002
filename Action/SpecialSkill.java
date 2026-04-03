@@ -41,4 +41,11 @@ public abstract class SpecialSkill implements Actions {
     public String getActionName() {
         return this.skillName;
     }
+    public int getCurrentCooldown() {
+        return currentCooldown;
+    }
+
+    public void setCurrentCooldown(int cooldown) {
+        this.currentCooldown = Math.max(0, cooldown);
+    }
 }

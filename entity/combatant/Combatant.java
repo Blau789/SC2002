@@ -10,7 +10,6 @@ public abstract class Combatant {
     protected int hp;
     protected int maxHp;
     protected int attack;
-    protected int defense;
     protected int baseDefense;
     protected int speed;
     protected List<StatusEffect> statusEffects;
@@ -20,7 +19,6 @@ public abstract class Combatant {
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.attack = attack;
-        this.defense = defense;
         this.baseDefense = defense;
         this.speed = speed;
         this.statusEffects = new ArrayList<>();
@@ -43,7 +41,11 @@ public abstract class Combatant {
     }
 
     public int getDefense() {
-        return defense;
+        int totalDefense = this.baseDefense;
+        for (StatusEffect effect : this.statusEffects) {
+            totalDefense += effect.getDefenseModifier();
+        }
+        return Math.max(0, totalDefense);
     }
 
     public int getSpeed() {
@@ -87,11 +89,6 @@ public abstract class Combatant {
         } else {
             this.hp = hp;
         }
-    }
-
-    //update the current defense value
-    public void setDefense(int defense) {
-        this.defense = defense;
     }
 
     //add new effect to this combatant

@@ -1,5 +1,6 @@
 package SC2002.entity.combatant;
 
+import SC2002.Action.SpecialSkill; 
 import SC2002.entity.items.Item;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +8,11 @@ import java.util.List;
 //entity.Player is an abstract class inherited from entity.Combatant class and will be the super class of warrior and wizard
 public abstract class Player extends Combatant {
     protected List<Item> items;
-    protected int specialSkillCooldown;
+    protected SpecialSkill specialSkill; 
 
     public Player(String name, int maxHp, int attack, int defense, int speed) {
         super(name, maxHp, attack, defense, speed);
         this.items = new ArrayList<>();
-        this.specialSkillCooldown = 0;
     }
 
     public List<Item> getItems() {
@@ -32,35 +32,9 @@ public abstract class Player extends Combatant {
     public void removeItem(Item item) {
         items.remove(item);
     }
-
-    public boolean isSpecialSkillReady() {
-        return specialSkillCooldown == 0;
+    public SpecialSkill getSpecialSkill(){
+        return specialSkill;
     }
-
-    public void resetCooldown() {
-        specialSkillCooldown = 3;
-    }
-
-    public void decrementCooldown() {
-        if (specialSkillCooldown > 0) {
-            specialSkillCooldown--;
-        }
-    }
-
-    public int getCooldown() {
-        return specialSkillCooldown;
-    }
-
     //for cases when the users use power stone (cooldown = 0)
-    public void setCooldown(int cd) {
-        if (cd < 0) {
-            specialSkillCooldown = 0;
-        } else {
-            specialSkillCooldown = cd;
-        }
+
     }
-
-    public abstract String useSpecialSkill(List<Combatant> targets);
-
-    public abstract String getSpecialSkillName();
-}
