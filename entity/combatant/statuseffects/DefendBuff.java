@@ -13,7 +13,7 @@ public class DefendBuff implements StatusEffect {
 
     @Override
     public void apply(Combatant target) {
-        target.setDefense(target.getDefense() + DEFENSE_BOOST);
+
     }
 
     @Override
@@ -23,9 +23,12 @@ public class DefendBuff implements StatusEffect {
 
     @Override
     public void remove(Combatant target) {
-        target.setDefense(target.getDefense() - DEFENSE_BOOST);
-    }
 
+    }
+    @Override
+    public int getDefenseModifier(){
+        return DEFENSE_BOOST;
+    }
     @Override
     public boolean isExpired() {
         return duration <= 0;

@@ -16,7 +16,7 @@ public interface StatusEffect {
     default boolean canTakeTurn(){
         return true;
     }
-    default double getDamageRecievedMultiplier(){
+    default double getDamageReceivedMultiplier(){
         return 1.0; 
     }
 }

@@ -21,7 +21,7 @@ public class SmokeBombEffect implements StatusEffect {
 
     @Override
     public void remove(Combatant target) {
-        // Nothing to reverse
+
     }
 
     @Override
@@ -37,5 +37,9 @@ public class SmokeBombEffect implements StatusEffect {
     @Override
     public int getRemainingDuration() {
         return duration;
+    }
+    @Override
+    public double getDamageReceivedMultiplier(){
+        return 0.0;
     }
 }
