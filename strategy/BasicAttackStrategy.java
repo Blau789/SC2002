@@ -23,6 +23,6 @@ public class BasicAttackStrategy implements EnemyActionStrategy {
                 return target;
             }
         }
-        return possibleTargets.get(0);
+        return null; //signal that battle is over if null is returned
     }
 }
