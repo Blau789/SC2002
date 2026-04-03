@@ -1,7 +1,6 @@
 package SC2002.entity.combatant.statuseffects;
 
 import SC2002.entity.combatant.Combatant;
-import SC2002.entity.combatant.Wizard;
 
 public class ArcaneBlastBuff implements StatusEffect {
     private final int bonusAttack;
@@ -12,9 +11,6 @@ public class ArcaneBlastBuff implements StatusEffect {
 
     @Override
     public void apply(Combatant target) {
-        if (target instanceof Wizard) {
-            ((Wizard) target).addBonusAttack(bonusAttack);
-        }
     }
 
     @Override

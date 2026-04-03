@@ -19,4 +19,7 @@ public interface StatusEffect {
     default double getDamageReceivedMultiplier(){
         return 1.0; 
     }
+    default int getAttackModifier() {
+        return 0;
+    }
 }
