@@ -1,5 +1,4 @@
 
-// 1. FIXED: Package name is now lowercase to respect Java conventions.
 package SC2002.Action;
 
 import SC2002.entity.combatant.Combatant;

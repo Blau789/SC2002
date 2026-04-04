@@ -10,9 +10,6 @@ public interface StatusEffect {
     String getName();
     int getRemainingDuration();
 
-    default int getDefenseModifier(){
-        return 0;
-    }
     default boolean canTakeTurn(){
         return true;
     }
@@ -22,4 +19,8 @@ public interface StatusEffect {
     default int getAttackModifier() {
         return 0;
     }
+    default int getDefenseModifier(){
+        return 0;
+    }
 }
+
