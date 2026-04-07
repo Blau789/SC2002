@@ -22,10 +22,11 @@ public class ShieldBashAction extends SpecialSkill {
         
         target.takeDamage(finalDamage);
 
-        StunEffect stun = new StunEffect(2);
+        // Stun for ONE turn
+        StunEffect stun = new StunEffect(1);
         target.addStatusEffect(stun);
 
-        return String.format("%s used Shield Bash on %s, dealing %d damage and stunning them!", 
+        return String.format("%s used Shield Bash on %s, dealing %d damage and stunning them for 1 turn!", 
                 source.getName(), target.getName(), finalDamage);
     }
 

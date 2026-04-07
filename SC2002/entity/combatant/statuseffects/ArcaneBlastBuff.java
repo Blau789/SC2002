@@ -11,16 +11,17 @@ public class ArcaneBlastBuff implements StatusEffect {
 
     @Override
     public void apply(Combatant target) {
+        // No immediate mutation; effect is applied via getAttackModifier().
     }
 
     @Override
     public void tick(Combatant target) {
-        // Permanent for the level — does not tick down
+        // Permanent for the combat — does not tick down
     }
 
     @Override
     public void remove(Combatant target) {
-        // Not reversed mid-level
+        // Not reversed mid-combat
     }
 
     @Override
@@ -36,6 +37,11 @@ public class ArcaneBlastBuff implements StatusEffect {
     @Override
     public int getRemainingDuration() {
         return Integer.MAX_VALUE;
+    }
+
+    @Override
+    public int getAttackModifier() {
+        return bonusAttack;
     }
 
     public int getBonusAttack() {

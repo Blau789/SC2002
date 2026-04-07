@@ -4,12 +4,18 @@ import SC2002.entity.combatant.Combatant;
 import java.util.List;
 
 public abstract class SpecialSkill implements Actions {
-    
+
     protected int currentCooldown;
+    protected final int maxCooldown;
     protected String skillName;
 
     public SpecialSkill(String skillName) {
+        this(skillName, 2);
+    }
+
+    public SpecialSkill(String skillName, int maxCooldown) {
         this.skillName = skillName;
+        this.maxCooldown = Math.max(0, maxCooldown);
         this.currentCooldown = 0;
     }
 
@@ -20,16 +26,18 @@ public abstract class SpecialSkill implements Actions {
         }
     }
 
+    public boolean isOnCooldown() {
+        return currentCooldown > 0;
+    }
+
     @Override
     public String execute(Combatant source, List<Combatant> targets) {
         if (currentCooldown > 0) {
-            return String.format("%s is on cooldown for %d more active turns!", skillName, currentCooldown);
+            return String.format("%s is on cooldown for %d more turn(s)!", skillName, currentCooldown);
         }
 
-       
-        // If they cast it now, it should be unavailable for their NEXT 2 turns, 
-        // and available on the 3rd turn after casting.
-        this.currentCooldown = 3; 
+        // Put it on cooldown after use.
+        this.currentCooldown = maxCooldown;
 
         return performSkillEffect(source, targets);
     }
@@ -41,6 +49,7 @@ public abstract class SpecialSkill implements Actions {
     public String getActionName() {
         return this.skillName;
     }
+
     public int getCurrentCooldown() {
         return currentCooldown;
     }

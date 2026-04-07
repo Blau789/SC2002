@@ -37,4 +37,4 @@ public abstract class Player extends Combatant {
     }
     //for cases when the users use power stone (cooldown = 0)
 
-    }
+}
