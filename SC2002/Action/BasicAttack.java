@@ -31,4 +31,8 @@ public class BasicAttack implements Actions {
     public String getActionName() {
         return "Basic Attack";
     }
+    @Override 
+    public TargetType getTargetType(){
+        return TargetType.Single_enemy;   
+    }
 }

@@ -29,7 +29,7 @@ public class ShieldBashAction extends SpecialSkill {
         return String.format("%s used Shield Bash on %s, dealing %d damage and stunning them for 2 turns!", 
                 source.getName(), target.getName(), finalDamage);
     }
-    @override 
+    @Override 
     public TargetType getTargetType(){
         return TargetType.Single_enemy;   
     }

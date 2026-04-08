@@ -4,5 +4,6 @@ public enum TargetType {
         Single_enemy, 
         All_enemies,
         Self,
-        Single_ally
+        Single_ally, 
+        Dependent
 }

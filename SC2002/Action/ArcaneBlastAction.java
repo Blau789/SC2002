@@ -44,7 +44,7 @@ public class ArcaneBlastAction extends SpecialSkill {
 
         return result.toString();
     }
-    @override 
+    @Override 
     public TargetType getTargetType(){
         return TargetType.All_enemies;   
     }

@@ -24,4 +24,8 @@ public class Defend implements Actions {
     public String getActionName() {
         return "Defend";
     }
+    @Override 
+    public TargetType getTargetType(){
+        return TargetType.Self;   
+    }
 }

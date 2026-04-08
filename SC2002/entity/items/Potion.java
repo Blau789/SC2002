@@ -1,5 +1,6 @@
 package SC2002.entity.items;
 
+import SC2002.Action.TargetType;
 import SC2002.entity.combatant.Combatant;
 import java.util.List;
 
@@ -33,5 +34,9 @@ public class Potion implements Item{
     @Override
     public String getName() {
         return "Potion";
+    }
+    @Override 
+    public TargetType getTargetType(){
+        return TargetType.Self;
     }
 }

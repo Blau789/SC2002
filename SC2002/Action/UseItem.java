@@ -28,4 +28,8 @@ public class UseItem implements Actions {
     public String getActionName() {
         return "Use " + itemToUse.getName();
     }
+    @Override 
+    public TargetType getTargetType(){
+        return TargetType.All_enemies;   
+    }
 }

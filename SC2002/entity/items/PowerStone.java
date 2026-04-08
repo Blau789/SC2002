@@ -1,6 +1,7 @@
 package SC2002.entity.items;
 
 import SC2002.Action.SpecialSkill;
+import SC2002.Action.TargetType;
 import SC2002.entity.combatant.Combatant;
 import SC2002.entity.combatant.Player;
 import java.util.List;
@@ -29,4 +30,8 @@ public class PowerStone implements Item {
 	public String getName() {
 		return "Power Stone";
 	}
+    @Override 
+    public TargetType getTargetType(){
+        return TargetType.Dependent;
+    }
 }
