@@ -6,9 +6,9 @@ import java.util.List;
 
 public class ShieldBashAction extends SpecialSkill {
     public ShieldBashAction (){
-        super("shieldbash");
+        super("Shield Bash");
 
-        }   
+    }   
     @Override
     protected String performSkillEffect(Combatant source, List<Combatant> targets) {
         if (targets == null || targets.isEmpty()) {
@@ -22,11 +22,11 @@ public class ShieldBashAction extends SpecialSkill {
         
         target.takeDamage(finalDamage);
 
-        // Stun for ONE turn
-        StunEffect stun = new StunEffect(1);
+        // Stun for TWO turns (current turn + next turn)
+        StunEffect stun = new StunEffect(2);
         target.addStatusEffect(stun);
 
-        return String.format("%s used Shield Bash on %s, dealing %d damage and stunning them for 1 turn!", 
+        return String.format("%s used Shield Bash on %s, dealing %d damage and stunning them for 2 turns!", 
                 source.getName(), target.getName(), finalDamage);
     }
 

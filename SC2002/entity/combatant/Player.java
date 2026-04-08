@@ -13,6 +13,7 @@ public abstract class Player extends Combatant {
     public Player(String name, int maxHp, int attack, int defense, int speed) {
         super(name, maxHp, attack, defense, speed);
         this.items = new ArrayList<>();
+        this.setFaction(Faction.PLAYER);
     }
 
     public List<Item> getItems() {

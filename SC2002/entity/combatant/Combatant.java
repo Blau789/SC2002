@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class Combatant {
+    public enum Faction { PLAYER, ENEMY }
+
     private String name;
     private int hp;
     private int maxHp;
@@ -13,6 +15,7 @@ public abstract class Combatant {
     private int baseDefense;
     private int speed;
     private List<StatusEffect> statusEffects;
+    private Faction faction;
 
     public Combatant(String name, int maxHp, int attack, int defense, int speed) {
         this.name = name;
@@ -22,6 +25,7 @@ public abstract class Combatant {
         this.baseDefense = defense;
         this.speed = speed;
         this.statusEffects = new ArrayList<>();
+        this.faction = Faction.ENEMY; // default; subclasses set appropriately
     }
 
     public String getName() {
@@ -138,6 +142,16 @@ public abstract class Combatant {
             }
         }
         return true;
+    }
+
+    public Faction getFaction() {
+        return faction;
+    }
+
+    public void setFaction(Faction faction) {
+        if (faction != null) {
+            this.faction = faction;
+        }
     }
 }
 

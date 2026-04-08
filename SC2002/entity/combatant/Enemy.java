@@ -10,6 +10,7 @@ public abstract class Enemy extends Combatant {
     public Enemy(String name, int maxHp, int attack, int defense, int speed, EnemyActionStrategy actionStrategy) {
         super(name, maxHp, attack, defense, speed);
         this.actionStrategy = actionStrategy;
+        this.setFaction(Faction.ENEMY);
     }
 
 

@@ -10,7 +10,7 @@ public abstract class SpecialSkill implements Actions {
     protected String skillName;
 
     public SpecialSkill(String skillName) {
-        this(skillName, 2);
+        this(skillName, 3);
     }
 
     public SpecialSkill(String skillName, int maxCooldown) {
