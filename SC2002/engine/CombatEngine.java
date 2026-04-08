@@ -1,10 +1,11 @@
 package SC2002.engine;
 
+import SC2002.Action.Actions;
 import SC2002.Action.BasicAttack;
 import SC2002.Action.Defend;
 import SC2002.Action.SpecialSkill;
+import SC2002.Action.TargetType;
 import SC2002.Action.UseItem;
-import SC2002.Action.Actions;
 import SC2002.entity.combatant.Combatant;
 import SC2002.entity.combatant.Enemy;
 import SC2002.entity.combatant.Player;
@@ -12,7 +13,6 @@ import SC2002.entity.items.Item;
 import SC2002.strategy.SpeedBasedTurnOrder;
 import SC2002.strategy.TurnOrderStrategy;
 import SC2002.ui.GameUI;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -142,89 +142,84 @@ public class CombatEngine {
             ui.showItemInventory(player);
 
             int choice = ui.promptPlayerAction(player);
-
+            Actions chosenAction = null;
+            Item selectedItem = null;
             if (choice == 1) {
-                Combatant target = selectEnemyTarget(enemies, ui);
-                if (target == null) {
-                    ui.showMessage("No valid target.");
-                    continue;
-                }
-                ui.showMessage(basicAttack.execute(player, Collections.singletonList(target)));
-                return;
-            }
-
-            if (choice == 2) {
-                ui.showMessage(defend.execute(player, Collections.emptyList()));
-                return;
-            }
-
-            if (choice == 3) {
-                boolean isArcaneBlast = player.getSpecialSkill().getActionName().toLowerCase().contains("arcane blast");
-
+                chosenAction = basicAttack;
+            } else if (choice == 2) {
+                chosenAction = defend;
+            } else if (choice == 3) {
                 if (player.getSpecialSkill() instanceof SpecialSkill
                         && ((SpecialSkill) player.getSpecialSkill()).isOnCooldown()) {
                     ui.showMessage(player.getSpecialSkill().execute(player, Collections.emptyList()));
                     ui.showMessage("Pick another action.");
                     continue;
                 }
-
-                if (isArcaneBlast) {
-                    List<Combatant> targets = new ArrayList<>(enemies);
-                    ui.showMessage(player.getSpecialSkill().execute(player, targets));
-                    return;
-                }
-
-                Combatant target = selectEnemyTarget(enemies, ui);
-                if (target == null) {
-                    ui.showMessage("No valid target.");
-                    continue;
-                }
-                ui.showMessage(player.getSpecialSkill().execute(player, Collections.singletonList(target)));
-                return;
-            }
-
-            if (choice == 4) {
+                chosenAction = player.getSpecialSkill();
+            } else if (choice == 4) {
                 if (!player.hasItems()) {
                     ui.showMessage("No items available.");
                     continue;
                 }
-
-                Item selected = selectPlayerItem(player, ui);
-                if (selected == null) {
+                selectedItem = selectPlayerItem(player, ui);
+                if (selectedItem == null) {
                     ui.showMessage("Invalid item choice.");
                     continue;
                 }
-
-                List<Combatant> itemTargets = Collections.singletonList(player);
-
-                // Power Stone should target the same way as the player's special skill.
-                if (selected instanceof SC2002.entity.items.PowerStone) {
-                    boolean isArcaneBlast = player.getSpecialSkill() != null
-                            && player.getSpecialSkill().getActionName().toLowerCase().contains("arcane blast");
-
-                    if (isArcaneBlast) {
-                        itemTargets = new ArrayList<>(enemies);
-                    } else {
-                        Combatant target = selectEnemyTarget(enemies, ui);
-                        if (target == null) {
-                            ui.showMessage("No valid target.");
+                chosenAction = new UseItem(selectedItem);
+            } else {
+                ui.showMessage("Invalid choice. Try again.");
+                continue;
+            }
+            TargetType type = chosenAction.getTargetType();
+            List<Combatant> targets = new ArrayList<>();
+            switch(type){
+                case Single_enemy: 
+                    Combatant target = selectEnemyTarget(enemies,ui);
+                    if (target == null){
+                        ui.showMessage("no Vaid target");
+                        continue;
+                    }
+                    targets.add(target);
+                    break; 
+                case All_enemies:
+                    targets.addAll(enemies);
+                    break; 
+                case Self: 
+                case Single_ally: 
+                    targets.add(player);
+                    break;
+                case Dependent:
+                    TargetType DependentType = player.getSpecialSkill().getTargetType();
+                    if (DependentType == TargetType.All_enemies){
+                        targets.addAll(enemies);
+                    }
+                    else if (DependentType == TargetType.Single_enemy){
+                        Combatant depTarget = selectEnemyTarget(enemies,ui);
+                        if (depTarget == null){
+                            ui.showMessage("no cvalid target");
                             continue;
                         }
-                        itemTargets = Collections.singletonList(target);
-                    }
-                }
-
-                UseItem useItemAction = new UseItem(selected);
-                String result = useItemAction.execute(player, itemTargets);
-                ui.showMessage(result);
-
-                player.removeItem(selected);
-                return;
+                        targets.add(depTarget);
+                        }
+                        else{
+                            targets.add(player);
+                        }
+                        break;
+                    default: 
+                    ui.showMessage("Action failed: Unknown Target type");
+                    continue;
             }
-
-            ui.showMessage("Invalid choice. Try again.");
+            ui.showMessage(chosenAction.execute(player,targets));
+            if (selectedItem != null){
+                player.removeItem(selectedItem);
+            }
+            return;
         }
-    }
+    }      
+                
+
+    
 
     private Item selectPlayerItem(Player player, GameUI ui) {
         // Build a unique list for menu ordering.
@@ -277,16 +272,6 @@ public class CombatEngine {
 
         Combatant target = enemy.selectTarget(opponents);
         if (target == null) {
-            return;
-        }
-
-        // Ensure we use takeDamage (not setHp) so Smoke Bomb can reduce damage to 0.
-        if (action instanceof BasicAttack) {
-            int rawDamage = Math.max(0, enemy.getAttack() - target.getDefense());
-            int before = target.getHp();
-            target.takeDamage(rawDamage);
-            int dealt = before - target.getHp();
-            ui.showMessage(enemy.getName() + " attacks " + target.getName() + " for " + dealt + " damage!");
             return;
         }
 

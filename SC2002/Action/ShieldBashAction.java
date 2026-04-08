@@ -33,6 +33,6 @@ public class ShieldBashAction extends SpecialSkill {
     public TargetType getTargetType(){
         return TargetType.Single_enemy;   
     }
-
+    
 }
 
