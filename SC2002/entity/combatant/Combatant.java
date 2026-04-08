@@ -6,13 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class Combatant {
-    protected String name;
-    protected int hp;
-    protected int maxHp;
-    protected int baseAttack;
-    protected int baseDefense;
-    protected int speed;
-    protected List<StatusEffect> statusEffects;
+    private String name;
+    private int hp;
+    private int maxHp;
+    private int baseAttack;
+    private int baseDefense;
+    private int speed;
+    private List<StatusEffect> statusEffects;
 
     public Combatant(String name, int maxHp, int attack, int defense, int speed) {
         this.name = name;
