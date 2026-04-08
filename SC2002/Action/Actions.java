@@ -6,5 +6,6 @@ import java.util.List;
 public interface Actions {
     String execute(Combatant source, List<Combatant> targets);
     String getActionName();
+    TargetType getTargetType();
 }
 
