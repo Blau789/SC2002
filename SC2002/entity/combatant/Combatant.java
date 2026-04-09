@@ -64,7 +64,7 @@ public abstract class Combatant {
         return hp > 0;
     }
 
-    public void takeDamage(int damage) {
+    public int takeDamage(int damage) {
         if (damage < 0) {
             damage = 0;
         }
@@ -80,6 +80,7 @@ public abstract class Combatant {
         if (hp < 0) {
             hp = 0;
         }
+        return actualDamage;
     }
 
     public void heal(int amount) {
