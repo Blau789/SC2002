@@ -30,6 +30,6 @@ public class UseItem implements Actions {
     }
     @Override 
     public TargetType getTargetType(){
-        return TargetType.All_enemies;   
+        return itemToUse.getTargetType();   
     }
 }
