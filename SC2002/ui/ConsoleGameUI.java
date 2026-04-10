@@ -4,7 +4,6 @@ import SC2002.entity.combatant.Combatant;
 import SC2002.entity.combatant.Enemy;
 import SC2002.entity.combatant.Player;
 import SC2002.entity.items.Item;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -114,7 +113,7 @@ public class ConsoleGameUI implements GameUI {
 
     @Override
     public void showDefeat(Player player, List<Enemy> remainingEnemies, int totalRoundsSurvived) {
-        System.out.println("\n*** DEFEATED. Don’t give up, try again! ***");
+        System.out.println("\n*** DEFEATED. Do not give up, try again! ***");
         int remaining = 0;
         if (remainingEnemies != null) {
             for (Enemy e : remainingEnemies) {
