@@ -18,7 +18,7 @@ public class DefendBuff implements StatusEffect {
 
     @Override
     public void tick(Combatant target) {
-        duration--;
+        // Defend is event-based; round ticks do not consume it.
     }
 
     @Override
@@ -27,7 +27,7 @@ public class DefendBuff implements StatusEffect {
     }
     @Override
     public int getDefenseModifier(){
-        return DEFENSE_BOOST;
+        return duration > 0 ? DEFENSE_BOOST : 0;
     }
     @Override
     public boolean isExpired() {
@@ -42,5 +42,15 @@ public class DefendBuff implements StatusEffect {
     @Override
     public int getRemainingDuration() {
         return duration;
+    }
+
+    @Override
+    public boolean ticksOnRoundStart() {
+        return false;
+    }
+
+    @Override
+    public void onOwnerAction(Combatant target) {
+        duration--;
     }
 }

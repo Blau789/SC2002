@@ -20,6 +20,9 @@ public interface StatusEffect {
     default void onDamageReceived(Combatant target){
     }
 
+    default void onOwnerAction(Combatant target){
+    }
+
     default boolean canTakeTurn(){
         return true;
     }

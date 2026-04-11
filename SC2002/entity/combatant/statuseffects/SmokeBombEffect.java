@@ -16,7 +16,7 @@ public class SmokeBombEffect implements StatusEffect {
 
     @Override
     public void tick(Combatant target) {
-        // Smoke Bomb is consumed by enemy attack actions, not by round ticks.
+        // Smoke Bomb is event-based; round ticks do not consume it.
     }
 
     @Override
@@ -45,12 +45,12 @@ public class SmokeBombEffect implements StatusEffect {
     }
 
     @Override
-    public void onDamageReceived(Combatant target) {
+    public void onOwnerAction(Combatant target) {
         duration--;
     }
 
     @Override
     public double getDamageReceivedMultiplier(){
-        return 0.0;
+        return duration > 0 ? 0.0 : 1.0;
     }
 }

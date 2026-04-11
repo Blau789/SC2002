@@ -42,7 +42,7 @@ public class Level {
 
     @Override
     public String toString() {
-        return "Level " + difficulty + " (" + difficultyName + ") — "
+        return "Level " + difficulty + " (" + difficultyName + ") - "
                 + initialEnemies.size() + " initial, "
                 + backupEnemies.size() + " backup";
     }

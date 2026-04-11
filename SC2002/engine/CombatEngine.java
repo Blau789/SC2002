@@ -216,10 +216,23 @@ public class CombatEngine {
                     ui.showMessage("Action failed: Unknown Target type");
                     continue;
             }
+
+            // Snapshot effects active before this action so freshly applied effects
+            // are not consumed immediately on the same turn.
+            List<SC2002.entity.combatant.statuseffects.StatusEffect> effectsBeforeAction =
+                    new ArrayList<>(player.getStatusEffects());
+
             ui.showMessage(chosenAction.execute(player,targets));
             if (selectedItem != null){
                 player.removeItem(selectedItem);
             }
+            // Consume event-based owner-action timers only after a successful action.
+            for (var effect : effectsBeforeAction) {
+                if (player.getStatusEffects().contains(effect)) {
+                    effect.onOwnerAction(player);
+                }
+            }
+            player.removeExpiredEffects();
             return;
         }
     }      

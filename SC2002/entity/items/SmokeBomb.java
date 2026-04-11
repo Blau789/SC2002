@@ -13,7 +13,7 @@ public class SmokeBomb implements Item {
 		SmokeBombEffect effect = new SmokeBombEffect(DURATION);
 		effect.apply(user);
 		user.addStatusEffect(effect);
-		return user.getName() + " used Smoke Bomb! Enemy attacks will do 0 damage for " + DURATION + " turns.";
+		return user.getName() + " used Smoke Bomb! Enemy attacks will do 0 damage for the next " + DURATION + " player actions.";
 	}
 
 	@Override
