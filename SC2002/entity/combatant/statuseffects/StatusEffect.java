@@ -10,6 +10,16 @@ public interface StatusEffect {
     String getName();
     int getRemainingDuration();
 
+    default boolean ticksOnRoundStart(){
+        return true;
+    }
+
+    default void onTurnSkipped(Combatant target){
+    }
+
+    default void onDamageReceived(Combatant target){
+    }
+
     default boolean canTakeTurn(){
         return true;
     }

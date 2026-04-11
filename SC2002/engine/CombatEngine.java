@@ -87,6 +87,10 @@ public class CombatEngine {
 
                 if (!actor.canTakeTurn()) {
                     ui.showUnableToAct(actor);
+                    for (var effect : new ArrayList<>(actor.getStatusEffects())) {
+                        effect.onTurnSkipped(actor);
+                    }
+                    actor.removeExpiredEffects();
                     if (actor instanceof Player p) {
                         reduceSpecialCooldown(p);
                     }
@@ -124,7 +128,9 @@ public class CombatEngine {
 
     private void tickStatusEffects(Combatant combatant) {
         for (var effect : new ArrayList<>(combatant.getStatusEffects())) {
-            effect.tick(combatant);
+            if (effect.ticksOnRoundStart()) {
+                effect.tick(combatant);
+            }
         }
         combatant.removeExpiredEffects();
     }

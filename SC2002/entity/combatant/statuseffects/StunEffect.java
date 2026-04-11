@@ -15,7 +15,7 @@ public class StunEffect implements StatusEffect{
 
     @Override
     public void tick(Combatant target) {
-        duration--;
+        // Stun is consumed when the affected combatant actually loses a turn.
     }
 
     @Override
@@ -36,6 +36,17 @@ public class StunEffect implements StatusEffect{
     public int getRemainingDuration() {
         return duration;
     }
+
+    @Override
+    public boolean ticksOnRoundStart() {
+        return false;
+    }
+
+    @Override
+    public void onTurnSkipped(Combatant target) {
+        duration--;
+    }
+
     @Override
     public boolean canTakeTurn(){
         return false;

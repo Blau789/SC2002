@@ -80,6 +80,12 @@ public abstract class Combatant {
         if (hp < 0) {
             hp = 0;
         }
+
+        for (StatusEffect effect : new ArrayList<>(statusEffects)) {
+            effect.onDamageReceived(this);
+        }
+        removeExpiredEffects();
+
         return actualDamage;
     }
 
