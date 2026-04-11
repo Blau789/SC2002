@@ -16,9 +16,10 @@ import SC2002.entity.items.SmokeBomb;
 
 import java.util.List;
 import java.util.Scanner;
-
 public class GameMain {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception{
+
         Scanner scanner = new Scanner(System.in);
         GameUI ui = new ConsoleGameUI(scanner);
 
@@ -82,5 +83,7 @@ public class GameMain {
         }
 
         scanner.close();
+
     }
+
 }

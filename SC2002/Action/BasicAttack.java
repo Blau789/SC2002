@@ -15,12 +15,13 @@ public class BasicAttack implements Actions {
         
         //   Damage = max(0, Attacker Attack - Target Defense)
         int rawDamage = source.getAttack() - target.getDefense();
-        int finalDamage = Math.max(0, rawDamage); 
+        int finalDamage = Math.max(0, rawDamage);
+        int actualDamage = target.takeDamage(finalDamage);
         target.takeDamage(finalDamage);
 
 
-        return String.format("%s used Basic Attack on %s for %d damage!", 
-                             source.getName(), target.getName(), finalDamage);
+        return String.format("%s used Basic Attack on %s for %d damage!",
+                source.getName(), target.getName(), actualDamage);
     }
 
     @Override
