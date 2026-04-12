@@ -36,6 +36,5 @@ public abstract class Player extends Combatant {
     public SpecialSkill getSpecialSkill(){
         return specialSkill;
     }
-    //for cases when the users use power stone (cooldown = 0)
 
 }
