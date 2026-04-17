@@ -72,7 +72,7 @@ public class CombatEngine {
                 tickStatusEffects(enemy);
             }
 
-            ui.showRoundHeader();
+            ui.showRoundHeader(rounds);
             ui.showPlayerStatus(player);
             ui.showEnemiesStatus(currentEnemies);
 
@@ -234,9 +234,6 @@ public class CombatEngine {
             return;
         }
     }      
-                
-
-    
 
     private Item selectPlayerItem(Player player, GameUI ui) {
         // Build a unique list for menu ordering.

@@ -4,7 +4,6 @@ import SC2002.entity.combatant.Combatant;
 import SC2002.entity.combatant.Enemy;
 import SC2002.entity.combatant.Player;
 import SC2002.entity.items.Item;
-
 import java.util.List;
 
 public interface GameUI {
@@ -20,7 +19,7 @@ public interface GameUI {
 
     void showStartingLevel(Object level);
 
-    void showRoundHeader();
+    void showRoundHeader(int roundNumber);
 
     void showPlayerStatus(Player player);
 
@@ -55,4 +54,6 @@ public interface GameUI {
     void showVictory(Player player, int totalRounds);
 
     void showDefeat(Player player, List<Enemy> remainingEnemies, int totalRoundsSurvived);
+
+    void showRoundHeader(int roundNumber);
 }
