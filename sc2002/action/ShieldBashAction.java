@@ -1,8 +1,8 @@
 package sc2002.action;
 
+import java.util.List;
 import sc2002.entity.combatant.Combatant;
 import sc2002.entity.combatant.statuseffects.StunEffect;
-import java.util.List;
 
 public class ShieldBashAction extends SpecialSkill {
     public ShieldBashAction (){
@@ -33,6 +33,4 @@ public class ShieldBashAction extends SpecialSkill {
     public TargetType getTargetType(){
         return TargetType.Single_enemy;   
     }
-    
 }
-

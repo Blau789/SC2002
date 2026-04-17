@@ -1,5 +1,8 @@
 package sc2002.engine;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import sc2002.action.Actions;
 import sc2002.action.BasicAttack;
 import sc2002.action.Defend;
@@ -12,9 +15,6 @@ import sc2002.entity.combatant.Player;
 import sc2002.entity.items.Item;
 import sc2002.strategy.TurnOrderStrategy;
 import sc2002.ui.GameUI;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class CombatEngine {
     private final TurnOrderStrategy turnOrder;
@@ -216,7 +216,7 @@ public class CombatEngine {
 
             // Snapshot effects active before this action so freshly applied effects
             // are not consumed immediately on the same turn.
-            List<SC2002.entity.combatant.statuseffects.StatusEffect> effectsBeforeAction =
+            List<sc2002.entity.combatant.statuseffects.StatusEffect> effectsBeforeAction =
                     new ArrayList<>(player.getStatusEffects());
 
             ui.showMessage(chosenAction.execute(player,targets));
@@ -290,7 +290,7 @@ public class CombatEngine {
 
         ui.showMessage(action.execute(enemy, java.util.Collections.singletonList(target)));
         
-        List<SC2002.entity.combatant.statuseffects.StatusEffect> effectsBefore =
+        List<sc2002.entity.combatant.statuseffects.StatusEffect> effectsBefore =
                 new ArrayList<>(enemy.getStatusEffects());
         for (var effect : effectsBefore) {
             if (enemy.getStatusEffects().contains(effect)) {
