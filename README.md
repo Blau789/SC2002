@@ -166,7 +166,9 @@ Choose action (1-4):
 Kaewchaijaroenkit Chayapol | U2520021C |
 Lau Jun Lit Boris | U2522435C |
 Joe Ong Teng Kiat | U2522073C |
+Khok Zi Wai (Guo Zhi Hui) | U2524138F |
 He Zhiqing | U2523695K
+
 
 
 ---
