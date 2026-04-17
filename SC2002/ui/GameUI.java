@@ -55,5 +55,4 @@ public interface GameUI {
 
     void showDefeat(Player player, List<Enemy> remainingEnemies, int totalRoundsSurvived);
 
-    void showRoundHeader(int roundNumber);
 }

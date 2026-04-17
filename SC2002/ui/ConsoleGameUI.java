@@ -29,7 +29,7 @@ public class ConsoleGameUI implements GameUI {
             }
         }
     }
-    
+    @Override
     public void showRoundHeader(int roundNumber) {
         System.out.println("\n--- Round " + roundNumber + " ---");
     }
@@ -67,11 +67,6 @@ public class ConsoleGameUI implements GameUI {
     @Override
     public void showStartingLevel(Object level) {
         System.out.println("\nStarting: " + level + "\n");
-    }
-
-    @Override
-    public void showRoundHeader() {
-        System.out.println("\n--- Round ---");
     }
 
     @Override
