@@ -1,10 +1,10 @@
 package sc2002.action;
 
-import java.util.Scanner2002.entity.combatant.Combatant;
-import sc2002.entity.combatant.statuseffects.DefendBuff;
-import sc2002.entity.combatant.statuseffects.StatusEffect;
 import java.util.ArrayList;
 import java.util.List;
+import sc2002.entity.combatant.Combatant;
+import sc2002.entity.combatant.statuseffects.DefendBuff;
+import sc2002.entity.combatant.statuseffects.StatusEffect;
 
 public class Defend implements Actions {
 
