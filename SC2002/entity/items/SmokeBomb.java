@@ -1,9 +1,9 @@
 package sc2002.entity.items;
 
-import sc2002.qction.TargetType;
+import java.util.List;
+import sc2002.action.TargetType;
 import sc2002.entity.combatant.Combatant;
 import sc2002.entity.combatant.statuseffects.SmokeBombEffect;
-import java.util.List;
 
 public class SmokeBomb implements Item {
 	private static final int DURATION = 2;

@@ -1,10 +1,10 @@
 package sc2002.ui;
 
-import sc002.entity.combatant.Combatant;
+import java.util.List;
+import sc2002.entity.combatant.Combatant;
 import sc2002.entity.combatant.Enemy;
 import sc2002.entity.combatant.Player;
 import sc2002.entity.items.Item;
-import java.util.List;
 
 public interface GameUI {
     void showWelcome();

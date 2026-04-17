@@ -1,8 +1,8 @@
 package sc2002.entity.items;
 
-import sc2002.qction.TargetType;
-import sc2002.entity.combatant.Combatant;
 import java.util.List;
+import sc2002.action.TargetType;
+import sc2002.entity.combatant.Combatant;
 
 public class Potion implements Item{
     private static final int HEAL_AMOUNT = 100;

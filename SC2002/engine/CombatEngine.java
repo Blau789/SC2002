@@ -1,11 +1,11 @@
 package sc2002.engine;
 
-import sc2002.Action.Actions;
-import sc2002.Action.BasicAttack;
-import sc2002.Action.Defend;
-import sc2002.Action.SpecialSkill;
-import sc2002.Action.TargetType;
-import sc2002.Action.UseItem;
+import sc2002.action.Actions;
+import sc2002.action.BasicAttack;
+import sc2002.action.Defend;
+import sc2002.action.SpecialSkill;
+import sc2002.action.TargetType;
+import sc2002.action.UseItem;
 import sc2002.entity.combatant.Combatant;
 import sc2002.entity.combatant.Enemy;
 import sc2002.entity.combatant.Player;
