@@ -91,9 +91,7 @@ public class CombatEngine {
                         effect.onTurnSkipped(actor);
                     }
                     actor.removeExpiredEffects();
-                    if (actor instanceof Player p) {
-                        reduceSpecialCooldown(p);
-                    }
+                    
                     continue;
                 }
 
