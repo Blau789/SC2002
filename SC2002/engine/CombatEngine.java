@@ -20,7 +20,7 @@ import java.util.List;
 public class CombatEngine {
     private final TurnOrderStrategy turnOrder;
 
-    public CombatEngine() {
+    public CombatEngine(TurnOrderStrategy turnOrder) {
         this.turnOrder = new SpeedBasedTurnOrder();
     }
 
