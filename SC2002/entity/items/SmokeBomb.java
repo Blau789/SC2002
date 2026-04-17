@@ -1,8 +1,8 @@
-package SC2002.entity.items;
+package sc2002.entity.items;
 
-import SC2002.Action.TargetType;
-import SC2002.entity.combatant.Combatant;
-import SC2002.entity.combatant.statuseffects.SmokeBombEffect;
+import sc2002.qction.TargetType;
+import sc2002.entity.combatant.Combatant;
+import sc2002.entity.combatant.statuseffects.SmokeBombEffect;
 import java.util.List;
 
 public class SmokeBomb implements Item {

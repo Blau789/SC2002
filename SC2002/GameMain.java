@@ -1,21 +1,21 @@
-package SC2002;
+package sc2002;
 
-import SC2002.engine.CombatEngine;
-import SC2002.entity.combatant.Enemy;
-import SC2002.entity.combatant.Player;
-import SC2002.entity.combatant.Warrior;
-import SC2002.entity.combatant.Wizard;
-import SC2002.entity.items.Item;
-import SC2002.entity.items.Potion;
-import SC2002.entity.items.PowerStone;
-import SC2002.entity.items.SmokeBomb;
-import SC2002.level.Level;
-import SC2002.level.LevelFactory;
-import SC2002.strategy.SpeedBasedTurnOrder;
-import SC2002.ui.ConsoleGameUI;
-import SC2002.ui.GameUI;
 import java.util.List;
 import java.util.Scanner;
+import sc2002.engine.CombatEngine;
+import sc2002.entity.combatant.Enemy;
+import sc2002.entity.combatant.Player;
+import sc2002.entity.combatant.Warrior;
+import sc2002.entity.combatant.Wizard;
+import sc2002.entity.items.Item;
+import sc2002.entity.items.Potion;
+import sc2002.entity.items.PowerStone;
+import sc2002.entity.items.SmokeBomb;
+import sc2002.level.Level;
+import sc2002.level.LevelFactory;
+import sc2002.strategy.SpeedBasedTurnOrder;
+import sc2002.ui.ConsoleGameUI;
+import sc2002.ui.GameUI;
 public class GameMain {
 
     public static void main(String[] args) throws Exception{

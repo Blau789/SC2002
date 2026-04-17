@@ -1,9 +1,9 @@
-package SC2002.ui;
+package sc2002.ui;
 
-import SC2002.entity.combatant.Combatant;
-import SC2002.entity.combatant.Enemy;
-import SC2002.entity.combatant.Player;
-import SC2002.entity.items.Item;
+import sc2002.entity.combatant.Combatant;
+import sc2002.entity.combatant.Enemy;
+import sc2002.entity.combatant.Player;
+import sc2002.entity.items.Item;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,21 +14,6 @@ public class ConsoleGameUI implements GameUI {
         this.scanner = scanner;
     }
 
-    private int readInt(int min, int max) {
-        while (true) {
-            try {
-                int val = scanner.nextInt();
-                scanner.nextLine();
-                if (val >= min && val <= max) {
-                    return val;
-                }
-                System.out.print("Invalid input. Enter a number (" + min + "-" + max + "): ");
-            } catch (java.util.InputMismatchException e) {
-                scanner.nextLine(); // consume the bad input
-                System.out.print("Invalid input. Enter a number (" + min + "-" + max + "): ");
-            }
-        }
-    }
     @Override
     public void showRoundHeader(int roundNumber) {
         System.out.println("\n--- Round " + roundNumber + " ---");

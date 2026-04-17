@@ -1,9 +1,9 @@
-package SC2002.entity.combatant;
+package sc2002.entity.combatant;
 
-import SC2002.entity.combatant.statuseffects.StatusEffect;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import sc2002.entity.combatant.statuseffects.StatusEffect;
 
 public abstract class Combatant {
     public enum Faction { PLAYER, ENEMY }
@@ -126,7 +126,7 @@ public abstract class Combatant {
 
     //return all current effect
     public List<StatusEffect> getStatusEffects() {
-        return statusEffects;
+        return new ArrayList<>(statusEffects);
     }
 
     //remove the expired effect(s)

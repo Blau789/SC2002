@@ -1,8 +1,7 @@
-package SC2002.strategy;
+package sc2002.strategy;
 
-import SC2002.entity.combatant.Combatant;
 import java.util.List;
-
+import sc2002.entity.combatant.Combatant;
 
 public interface TurnOrderStrategy {
     List<Combatant> determineTurnOrder(List<Combatant> combatants);

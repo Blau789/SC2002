@@ -1,11 +1,11 @@
-package SC2002.level;
+package sc2002.level;
 
-import SC2002.entity.combatant.Goblin;
-import SC2002.entity.combatant.Wolf;
-import SC2002.strategy.BasicAttackStrategy;
-import SC2002.strategy.EnemyActionStrategy;
+import sc2002.strategy.BasicAttackStrategy;
+import sc2002.strategy.EnemyActionStrategy;
 import java.util.ArrayList;
 import java.util.Arrays;
+import sc2002.entity.combatant.Goblin;
+import sc2002.entity.combatant.Wolf;
 
 
 public class LevelFactory {

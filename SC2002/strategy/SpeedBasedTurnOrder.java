@@ -1,10 +1,9 @@
-package SC2002.strategy;
+package sc2002.strategy;
 
-import SC2002.entity.combatant.Combatant;
+import sc2002.entity.combatant.Combatant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
 
 public class SpeedBasedTurnOrder implements TurnOrderStrategy {
 

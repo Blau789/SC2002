@@ -1,7 +1,6 @@
-package SC2002.entity.combatant;
+package sc2002.entity.combatant;
 
-import SC2002.Action.ShieldBashAction;
-
+import sc2002.action.ShieldBashAction;
 
 public class Warrior extends Player {
 

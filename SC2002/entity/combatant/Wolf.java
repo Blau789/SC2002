@@ -1,5 +1,5 @@
-package SC2002.entity.combatant;
-import SC2002.strategy.EnemyActionStrategy;
+package sc2002.entity.combatant;
+import sc2002.strategy.EnemyActionStrategy;
 
 public class Wolf extends Enemy {
     public Wolf(EnemyActionStrategy strategy) {

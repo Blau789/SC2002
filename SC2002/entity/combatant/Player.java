@@ -1,9 +1,9 @@
-package SC2002.entity.combatant;
+package sc2002.entity.combatant;
 
-import SC2002.Action.SpecialSkill; 
-import SC2002.entity.items.Item;
 import java.util.ArrayList;
 import java.util.List;
+import sc2002.action.SpecialSkill;
+import sc2002.entity.items.Item;
 
 //entity.Player is an abstract class inherited from entity.Combatant class and will be the super class of warrior and wizard
 public abstract class Player extends Combatant {

@@ -1,6 +1,6 @@
-package SC2002.entity.combatant;
+package sc2002.entity.combatant;
 
-import SC2002.Action.ArcaneBlastAction;
+import sc2002.action.ArcaneBlastAction;
 public class Wizard extends Player {
 
     public Wizard(String name) {

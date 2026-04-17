@@ -1,8 +1,8 @@
-package SC2002.level;
+package sc2002.level;
 
-import SC2002.entity.combatant.Enemy;
 import java.util.ArrayList;
 import java.util.List;
+import sc2002.entity.combatant.Enemy;
 
 
 public class Level {

@@ -1,18 +1,17 @@
-package SC2002.engine;
+package sc2002.engine;
 
-import SC2002.Action.Actions;
-import SC2002.Action.BasicAttack;
-import SC2002.Action.Defend;
-import SC2002.Action.SpecialSkill;
-import SC2002.Action.TargetType;
-import SC2002.Action.UseItem;
-import SC2002.entity.combatant.Combatant;
-import SC2002.entity.combatant.Enemy;
-import SC2002.entity.combatant.Player;
-import SC2002.entity.items.Item;
-import SC2002.strategy.SpeedBasedTurnOrder;
-import SC2002.strategy.TurnOrderStrategy;
-import SC2002.ui.GameUI;
+import sc2002.Action.Actions;
+import sc2002.Action.BasicAttack;
+import sc2002.Action.Defend;
+import sc2002.Action.SpecialSkill;
+import sc2002.Action.TargetType;
+import sc2002.Action.UseItem;
+import sc2002.entity.combatant.Combatant;
+import sc2002.entity.combatant.Enemy;
+import sc2002.entity.combatant.Player;
+import sc2002.entity.items.Item;
+import sc2002.strategy.TurnOrderStrategy;
+import sc2002.ui.GameUI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +20,7 @@ public class CombatEngine {
     private final TurnOrderStrategy turnOrder;
 
     public CombatEngine(TurnOrderStrategy turnOrder) {
-        this.turnOrder = new SpeedBasedTurnOrder();
+        this.turnOrder = turnOrder;
     }
 
     public static class BattleResult {
@@ -181,7 +180,7 @@ public class CombatEngine {
                 case Single_enemy: 
                     Combatant target = selectEnemyTarget(enemies,ui);
                     if (target == null){
-                        ui.showMessage("no Vaid target");
+                        ui.showMessage("No valid target");
                         continue;
                     }
                     targets.add(target);
@@ -194,14 +193,14 @@ public class CombatEngine {
                     targets.add(player);
                     break;
                 case Dependent:
-                    TargetType DependentType = player.getSpecialSkill().getTargetType();
-                    if (DependentType == TargetType.All_enemies){
+                    TargetType dependentType = player.getSpecialSkill().getTargetType();
+                    if (dependentType == TargetType.All_enemies){
                         targets.addAll(enemies);
                     }
-                    else if (DependentType == TargetType.Single_enemy){
+                    else if (dependentType == TargetType.Single_enemy){
                         Combatant depTarget = selectEnemyTarget(enemies,ui);
                         if (depTarget == null){
-                            ui.showMessage("no cvalid target");
+                            ui.showMessage("No valid target");
                             continue;
                         }
                         targets.add(depTarget);
@@ -290,5 +289,14 @@ public class CombatEngine {
         }
 
         ui.showMessage(action.execute(enemy, java.util.Collections.singletonList(target)));
+        
+        List<SC2002.entity.combatant.statuseffects.StatusEffect> effectsBefore =
+                new ArrayList<>(enemy.getStatusEffects());
+        for (var effect : effectsBefore) {
+            if (enemy.getStatusEffects().contains(effect)) {
+                effect.onOwnerAction(enemy);
+            }
+        }
+        enemy.removeExpiredEffects();
     }
 }

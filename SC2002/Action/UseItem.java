@@ -1,8 +1,7 @@
+package sc2002.action;
 
-package SC2002.Action;
-
-import SC2002.entity.combatant.Combatant;
-import SC2002.entity.items.Item;
+import sc2002.entity.combatant.Combatant;
+import sc2002.entity.items.Item;
 import java.util.List;
 
 public class UseItem implements Actions {

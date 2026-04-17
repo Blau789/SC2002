@@ -1,8 +1,8 @@
-package SC2002.entity.items;
+package sc2002.entity.items;
 
-import SC2002.Action.TargetType;
-import SC2002.entity.combatant.Combatant;
 import java.util.List;
+import sc2002.action.TargetType;
+import sc2002.entity.combatant.Combatant;
 
 public interface Item{
 	String use(Combatant user, List<Combatant> targets);

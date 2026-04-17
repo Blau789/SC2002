@@ -1,9 +1,9 @@
-package SC2002.ui;
+package sc2002.ui;
 
-import SC2002.entity.combatant.Combatant;
-import SC2002.entity.combatant.Enemy;
-import SC2002.entity.combatant.Player;
-import SC2002.entity.items.Item;
+import sc002.entity.combatant.Combatant;
+import sc2002.entity.combatant.Enemy;
+import sc2002.entity.combatant.Player;
+import sc2002.entity.items.Item;
 import java.util.List;
 
 public interface GameUI {

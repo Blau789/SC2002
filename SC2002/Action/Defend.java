@@ -1,4 +1,4 @@
-package SC2002.Action;
+package sc2002.action;
 
 import SC2002.entity.combatant.Combatant;
 import SC2002.entity.combatant.statuseffects.DefendBuff;

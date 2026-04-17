@@ -1,6 +1,6 @@
-package SC2002.entity.combatant.statuseffects;
+package sc2002.entity.combatant.statuseffects;
 
-import SC2002.entity.combatant.Combatant;
+import sc2002.entity.combatant.Combatant;
 
 public interface StatusEffect {
     void apply(Combatant target);
