@@ -14,6 +14,26 @@ public class ConsoleGameUI implements GameUI {
         this.scanner = scanner;
     }
 
+    private int readInt(int min, int max) {
+        while (true) {
+            try {
+                int val = scanner.nextInt();
+                scanner.nextLine();
+                if (val >= min && val <= max) {
+                    return val;
+                }
+                System.out.print("Invalid input. Enter a number (" + min + "-" + max + "): ");
+            } catch (java.util.InputMismatchException e) {
+                scanner.nextLine(); // consume the bad input
+                System.out.print("Invalid input. Enter a number (" + min + "-" + max + "): ");
+            }
+        }
+    }
+    
+    public void showRoundHeader(int roundNumber) {
+        System.out.println("\n--- Round " + roundNumber + " ---");
+    }
+
     @Override
     public void showWelcome() {
         System.out.println("=== Welcome to RPG Combat Game ===\n");
