@@ -11,7 +11,6 @@ public class SmokeBombEffect implements StatusEffect {
 
     @Override
     public void apply(Combatant target) {
-        // Effect is checked externally by StatusEffectManager
     }
 
     @Override
